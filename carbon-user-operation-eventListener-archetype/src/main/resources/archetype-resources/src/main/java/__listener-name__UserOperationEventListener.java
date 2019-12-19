@@ -1,25 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-/*
- * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
- *
- * WSO2 Inc. licenses this file to you under the Apache License,
- * Version 2.0 (the "License"); you may not use this file except
- * in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied. See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 package ${package};
-
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -33,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 
 
-
 public class ${listener-name}UserOperationEventListener extends AbstractUserOperationEventListener {
 
     //Sample Code
@@ -43,8 +24,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     @Override
     public int getExecutionOrderId() {
 
-        //This listener should execute before the IdentityMgtEventListener
-        //Hence the number should be < 1357 (Execution order ID of IdentityMgtEventListener)
+        //TODO: Implementation required.
+
+        //This listener should execute before the IdentityMgtEventListener.
+        //Hence the number should be < 1357 (Execution order ID of IdentityMgtEventListener).
         return 1356;
     }
 
@@ -52,7 +35,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPreAuthenticate(String userName, Object credential, UserStoreManager userStoreManager)
             throws UserStoreException {
 
-        //Edit your c.ode here
+        //TODO: Implement if required.
+
+        //Runs before Authentication of User.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreAuthenticate", userName));
         return true;
@@ -62,14 +48,22 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPostAuthenticate(String userName, boolean authenticated, UserStoreManager userStoreManager)
             throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs after Authentication of User.
+
         //Sample Code.
-        ////audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostAuthenticate", userName));
+        //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostAuthenticate", userName));
         return true;
     }
 
     @Override
     public boolean doPreAddUser(String userName, Object credential, String[] roleList, Map<String, String> claims,
                                 String profile, UserStoreManager userStoreManager) throws UserStoreException {
+
+        //TODO: Implement if required.
+
+        //Runs before creating a User.
 
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreAddUser", userName));
@@ -80,6 +74,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPostAddUser(String userName, Object credential, String[] roleList, Map<String, String> claims,
                                  String profile, UserStoreManager userStoreManager) throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs after creating a User.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostAddUser", userName));
         return true;
@@ -88,6 +86,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     @Override
     public boolean doPreUpdateCredential(String userName, Object newCredential, Object oldCredential,
                                          UserStoreManager userStoreManager) throws UserStoreException {
+
+        //TODO: Implement if required.
+
+        //Runs before Updating the password of User.
 
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreUpdateCredential", userName));
@@ -98,6 +100,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPostUpdateCredential(String userName, Object credential, UserStoreManager userStoreManager)
             throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs after Updating the password of User.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostUpdateCredential", userName));
         return true;
@@ -106,6 +112,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     @Override
     public boolean doPreUpdateCredentialByAdmin(String userName, Object newCredential,
                                                 UserStoreManager userStoreManager) throws UserStoreException {
+
+        //TODO: Implement if required.
+
+        //Runs before updating the password of User by Admin.
 
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreUpdateCredentialByAdmin", userName));
@@ -116,6 +126,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPostUpdateCredentialByAdmin(String userName, Object credential, UserStoreManager userStoreManager)
             throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs after updating the password of User by Admin.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostUpdateCredentialByAdmin", userName));
         return true;
@@ -124,6 +138,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     @Override
     public boolean doPreDeleteUser(String userName, UserStoreManager userStoreManager) throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs before deleting a User.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreDeleteUser", userName));
         return true;
@@ -131,6 +149,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
 
     @Override
     public boolean doPostDeleteUser(String userName, UserStoreManager userStoreManager) throws UserStoreException {
+
+        //TODO: Implement if required.
+
+        //Runs after deleting a User.
 
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostDeleteUser", userName));
@@ -141,6 +163,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPreSetUserClaimValue(String userName, String claimURI, String claimValue, String profileName,
                                           UserStoreManager userStoreManager) throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs before updating a claim of the user.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreSetUserClaimValue", userName));
         return true;
@@ -149,6 +175,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     @Override
     public boolean doPostSetUserClaimValue(String userName, UserStoreManager userStoreManager)
             throws UserStoreException {
+
+        //TODO: Implement if required.
+
+        //Runs after updating a claim of the user.
 
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostSetUserClaimValue", userName));
@@ -159,6 +189,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPreSetUserClaimValues(String userName, Map<String, String> claims, String profileName,
                                            UserStoreManager userStoreManager) throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs before updating multiple claims of the user.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreSetUserClaimValues", userName));
         return true;
@@ -167,6 +201,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     @Override
     public boolean doPostSetUserClaimValues(String userName, Map<String, String> claims, String profileName,
                                             UserStoreManager userStoreManager) throws UserStoreException {
+
+        //TODO: Implement if required.
+
+        //Runs after updating multiple claims of the user.
 
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostSetUserClaimValues", userName));
@@ -177,6 +215,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPreDeleteUserClaimValues(String userName, String[] claims, String profileName,
                                               UserStoreManager userStoreManager) throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs before deleting claims of the user.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreDeleteUserClaimValues", userName));
         return true;
@@ -185,6 +227,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     @Override
     public boolean doPostDeleteUserClaimValues(String userName, UserStoreManager userStoreManager)
             throws UserStoreException {
+
+        //TODO: Implement if required.
+
+        //Runs after deleting claims of the user.
 
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostDeleteUserClaimValues", userName));
@@ -195,6 +241,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPreDeleteUserClaimValue(String userName, String claimURI, String profileName,
                                              UserStoreManager userStoreManager) throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs before updating a claim of the user.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreDeleteUserClaimValue", userName));
         return true;
@@ -203,6 +253,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     @Override
     public boolean doPostDeleteUserClaimValue(String userName, UserStoreManager userStoreManager)
             throws UserStoreException {
+
+        //TODO: Implement if required.
+
+        //Runs after deleting a claim of the user.
 
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostDeleteUserClaimValue", userName));
@@ -213,6 +267,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPreAddRole(String roleName, String[] userList, Permission[] permissions,
                                 UserStoreManager userStoreManager) throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs before adding a role.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreAddRole", roleName));
         return true;
@@ -222,6 +280,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPostAddRole(String roleName, String[] userList, Permission[] permissions,
                                  UserStoreManager userStoreManager) throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs after adding a role.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostAddRole", roleName));
         return true;
@@ -230,6 +292,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     @Override
     public boolean doPreDeleteRole(String roleName, UserStoreManager userStoreManager) throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs after deleting a role.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreDeleteRole", roleName));
         return true;
@@ -237,6 +303,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
 
     @Override
     public boolean doPostDeleteRole(String roleName, UserStoreManager userStoreManager) throws UserStoreException {
+
+        //TODO: Implement if required.
+
+        //Runs after deleting a role.
 
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostDeleteRole", roleName));
@@ -247,6 +317,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPreUpdateRoleName(String roleName, String newRoleName, UserStoreManager userStoreManager)
             throws UserStoreException{
 
+        //TODO: Implement if required.
+
+        //Runs before updating the rolename.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreUpdateRoleName", roleName));
         return true;
@@ -255,6 +329,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     @Override
     public boolean doPostUpdateRoleName(String roleName, String newRoleName, UserStoreManager userStoreManager)
             throws UserStoreException {
+
+        //TODO: Implement if required.
+
+        //Runs after updating the rolename.
 
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostUpdateRoleName", roleName));
@@ -265,6 +343,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPreUpdateUserListOfRole(String roleName, String[] deletedUsers, String[] newUsers,
                                              UserStoreManager userStoreManager) throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs before updating the userlist of the rolename.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreUpdateUserListOfRole", roleName));
         return true;
@@ -273,6 +355,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     @Override
     public boolean doPostUpdateUserListOfRole(String roleName, String[] deletedUsers, String[] newUsers,
                                               UserStoreManager userStoreManager) throws UserStoreException {
+
+        //TODO: Implement if required.
+
+        //Runs after updating the userlist of the rolename.
 
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostUpdateUserListOfRole", roleName));
@@ -283,6 +369,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPreUpdateRoleListOfUser(String userName, String[] deletedRoles, String[] newRoles,
                                              UserStoreManager userStoreManager) throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs before updating the rolelist of the user.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreUpdateRoleListOfUser", userName));
         return true;
@@ -291,6 +381,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     @Override
     public boolean doPostUpdateRoleListOfUser(String userName, String[] deletedRoles, String[] newRoles,
                                               UserStoreManager userStoreManager) throws UserStoreException {
+
+        //TODO: Implement if required.
+
+        //Runs after updating the rolelist of the user.
 
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostUpdateRoleListOfUser", userName));
@@ -302,6 +396,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
                                           UserStoreManager storeManager) throws UserStoreException {
 
 
+        //TODO: Implement if required.
+
+        //Runs before getting the user claim value.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreGetUserClaimValue", userName));
         return true;
@@ -310,6 +408,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     @Override
     public boolean doPreGetUserClaimValues(String userName, String[] claims, String profileName, Map<String,
             String> claimMap, UserStoreManager storeManager) throws UserStoreException {
+
+        //TODO: Implement if required.
+
+        //Runs before getting the user claim values.
 
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPreGetUserClaimValues", userName));
@@ -320,6 +422,10 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPostGetUserClaimValue(String userName, String claim, List<String> claimValue, String profileName,
                                            UserStoreManager storeManager) throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs after getting the user claim value.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostGetUserClaimValue", userName));
         return true;
@@ -329,19 +435,25 @@ public class ${listener-name}UserOperationEventListener extends AbstractUserOper
     public boolean doPostGetUserClaimValues(String userName, String[] claims, String profileName, Map<String,
             String> claimMap, UserStoreManager storeManager) throws UserStoreException {
 
+        //TODO: Implement if required.
+
+        //Runs after getting the user claim values.
+
         //Sample Code.
         //audit.info(String.format(AUDIT_MESSAGE, getUser(), "doPostGetUserClaimValues", userName));
         return true;
     }
 
     /**
-     * Get the logged in user's username who is calling the operation
+     * Get the logged in user's username who is calling the operation.
+     * This is method is needed to excute sample code.
      *
      * @return username
      */
-    private String getUser() {
+//    private String getUser() {
+//
+//        return CarbonContext.getThreadLocalCarbonContext().getUsername() + "@" +
+//                CarbonContext.getThreadLocalCarbonContext().getTenantDomain();
+//    }
 
-        return CarbonContext.getThreadLocalCarbonContext().getUsername() + "@" +
-                CarbonContext.getThreadLocalCarbonContext().getTenantDomain();
-    }
 }
