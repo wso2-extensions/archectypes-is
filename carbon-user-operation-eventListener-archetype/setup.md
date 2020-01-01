@@ -1,13 +1,13 @@
-##Product: Template for WSO2 Identity Server User operation Event listener
+## Product: Template for WSO2 Identity Server User operation Event listener
 
 STEPS:
 
  * Navigate to `archetypes/carbon-user-operation-eventListener` and run the following command
-         mvn clean install
+         `mvn clean install`
 
  * Edit and run the following command to create the User operation Event listener
    
-   ` mvn archetype:generate
+   `mvn archetype:generate
          -DarchetypeGroupId=org.wso2.carbon.extension.identity
          -DarchetypeArtifactId=user-operation-eventListner-archetype
          -DarchetypeVersion=5.9.0.x <version of the archetype>
@@ -33,4 +33,3 @@ STEPS:
      
  * After making the changes, build your project using `mvn clean install` and 
  put the generated jar into `<is server>/repository/components/dropins`  
-
