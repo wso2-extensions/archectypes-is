@@ -1,0 +1,10 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+package ${package};
+
+public class ${connector_name}AuthenticatorConstants {
+
+    public static final String AUTHENTICATOR_NAME = "${connector_name}";
+    public static final String AUTHENTICATOR_FRIENDLY_NAME = "${connector_name}Authenticator";
+}
