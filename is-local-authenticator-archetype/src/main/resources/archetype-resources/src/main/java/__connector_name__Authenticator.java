@@ -28,7 +28,7 @@ public class ${connector_name}Authenticator extends AbstractApplicationAuthentic
         // Use this to do any initializations to the authentication. eg. this may be used to redirect user to a page
         // where he can submit the credentials
 
-        //TODO: Magic!
+        //TODO: Implement the required logic
         super.initiateAuthenticationRequest(request, response, context);
     }
 
@@ -37,7 +37,7 @@ public class ${connector_name}Authenticator extends AbstractApplicationAuthentic
         // In a multi option scenario, check whether the request from user is meant to this authenticator or not.
         // eg. For basic authentication, this would be a check to see if request has both username and password params.
 
-        //TODO: Magic!
+        //TODO: Implement the required logic
         return true;
     }
 
@@ -47,7 +47,7 @@ public class ${connector_name}Authenticator extends AbstractApplicationAuthentic
         throws AuthenticationFailedException {
         // Does the actual authentication
 
-        //TODO: Magic!
+        //TODO: Implement the required logic
     }
 
     @Override
@@ -57,7 +57,6 @@ public class ${connector_name}Authenticator extends AbstractApplicationAuthentic
         // In most cases this should be unchanged.
         return request.getParameter("sessionDataKey");
     }
-
 
     /**
      * Get the friendly name of the Authenticator

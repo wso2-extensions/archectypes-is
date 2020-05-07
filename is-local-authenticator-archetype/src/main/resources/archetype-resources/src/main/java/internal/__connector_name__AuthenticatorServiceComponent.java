@@ -17,30 +17,30 @@ import java.util.Hashtable;
 
 @Component(name = "${package}.${connector_name}AuthenticatorServiceComponent", immediate = true)
 
-public class ${connector_name}AuthenticatorServiceComponent{
+public class ${connector_name}AuthenticatorServiceComponent {
 
-private static Log log=LogFactory.getLog(${connector_name}AuthenticatorServiceComponent.class);
-private ServiceRegistration serviceRegistration = null;
+    private static Log log = LogFactory.getLog(${connector_name}AuthenticatorServiceComponent.class);
+    private ServiceRegistration serviceRegistration = null;
 
 
-@Activate
-protected void activate(ComponentContext context){
+    @Activate
+    protected void activate(ComponentContext context) {
 
-    //register the custom local authenticator as an OSGI service.
-    serviceRegistration=context.getBundleContext().registerService(ApplicationAuthenticator.class.getName(),
-    new ${connector_name}Authenticator(),null);
-    log.info("${connector_name}AuthenticatorServiceComponent bundle activated successfully.");
-}
-
-protected void deactivate(ComponentContext context){
-
-    if(log.isDebugEnabled()){
-        log.debug("${connector_name}AuthenticatorServiceComponent is deactivated.");
+        //register the custom local authenticator as an OSGI service.
+        serviceRegistration = context.getBundleContext().registerService(ApplicationAuthenticator.class.getName(),
+        new ${connector_name}Authenticator(), null);
+        log.info("${connector_name}AuthenticatorServiceComponent bundle activated successfully.");
     }
 
-// Unregistering the custom local authenticator service.
-    if(serviceRegistration!=null){
-        serviceRegistration.unregister();
-    }
+    protected void deactivate(ComponentContext context) {
+
+        if(log.isDebugEnabled()) {
+            log.debug("${connector_name}AuthenticatorServiceComponent is deactivated.");
+        }
+
+    // Unregistering the custom local authenticator service.
+        if(serviceRegistration != null) {
+            serviceRegistration.unregister();
+        }
     }
 }
