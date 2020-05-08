@@ -7,6 +7,7 @@
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
     <packaging>bundle</packaging>
+    <name>WSO2 Carbon - Authenticator Library For ${connector_name}</name>
 
     <dependencies>
         <dependency>
@@ -26,8 +27,28 @@
         </dependency>
         <dependency>
             <groupId>org.wso2.carbon.identity.framework</groupId>
-            <artifactId>org.wso2.carbon.identity.application.authentication.framework</artifactId>
+            <artifactId>org.wso2.carbon.identity.provisioning</artifactId>
             <version>${carbon.identity.framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.identity.framework</groupId>
+            <artifactId>org.wso2.carbon.identity.application.common</artifactId>
+            <version>${carbon.identity.framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.identity.framework</groupId>
+            <artifactId>org.wso2.carbon.identity.core</artifactId>
+            <version>${carbon.identity.framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.core</artifactId>
+            <version>${carbon.kernel.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.user.core</artifactId>
+            <version>${carbon.kernel.version}</version>
         </dependency>
     </dependencies>
 
@@ -72,7 +93,9 @@
                             !${package}.internal,
                             ${package}.*
                         </Export-Package>
-                        <Import-Package>org.apache.commons.logging.*; version="1.0.4",</Import-Package>
+                        <Import-Package>
+                            org.apache.commons.logging.*; version="1.0.4",
+                        </Import-Package>
                         <!--This is not the recommended way. Please add the required imports in the
                             Import-Package section and remove the DynamicImport-Package section-->
                         <DynamicImport-Package>*</DynamicImport-Package>
@@ -85,14 +108,13 @@
     <properties>
         <maven.scr.plugin.version>1.22.0</maven.scr.plugin.version>
         <maven.bundle.plugin.version>2.4.0</maven.bundle.plugin.version>
-        <osgi.framework.imp.pkg.version.range>[1.7.0, 2.0.0)</osgi.framework.imp.pkg.version.range>
         <osgi.service.component.imp.pkg.version.range>[1.2.0, 2.0.0)</osgi.service.component.imp.pkg.version.range>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <equinox.osgi.services.version>3.5.100.v20160504-1419</equinox.osgi.services.version>
-        <commons-collections.wso2.osgi.version.range>[3.2.0,4.0.0)</commons-collections.wso2.osgi.version.range>
         <org.apache.felix.scr.ds-annotations.version>1.2.4</org.apache.felix.scr.ds-annotations.version>
         <org.eclipse.osgi.version>3.9.1.v20130814-1242</org.eclipse.osgi.version>
         <carbon.identity.framework.version>5.12.387</carbon.identity.framework.version>
+        <carbon.kernel.version>4.4.7</carbon.kernel.version>
     </properties>
 
 </project>

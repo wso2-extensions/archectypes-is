@@ -26,9 +26,10 @@ public class ${connector_name}AuthenticatorServiceComponent {
     @Activate
     protected void activate(ComponentContext context) {
 
-        //register the custom local authenticator as an OSGI service.
+        Hashtable<String, String> props = new Hashtable<String, String>();
+        //register the custom authenticator as an OSGI service.
         serviceRegistration = context.getBundleContext().registerService(ApplicationAuthenticator.class.getName(),
-        new ${connector_name}Authenticator(), null);
+        new ${connector_name}Authenticator(), props);
         log.info("${connector_name}AuthenticatorServiceComponent bundle activated successfully.");
     }
 
@@ -38,7 +39,7 @@ public class ${connector_name}AuthenticatorServiceComponent {
             log.debug("${connector_name}AuthenticatorServiceComponent is deactivated.");
         }
 
-        // Unregistering the custom local authenticator service.
+        // Unregistering the custom authenticator service.
         if(serviceRegistration != null) {
             serviceRegistration.unregister();
         }
