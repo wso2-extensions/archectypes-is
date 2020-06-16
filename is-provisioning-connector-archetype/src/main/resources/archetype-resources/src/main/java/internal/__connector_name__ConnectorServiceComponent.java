@@ -17,6 +17,9 @@ import java.util.Hashtable;
 
 @Component(name = "${package}.${connector_name}ConnectorServiceComponent", immediate = true)
 
+/**
+ * OSGI service component class to register the provisioning authenticator.
+ */
 public class ${connector_name}ConnectorServiceComponent {
 
     private static Log log = LogFactory.getLog(${connector_name}ConnectorServiceComponent.class);
@@ -28,21 +31,20 @@ public class ${connector_name}ConnectorServiceComponent {
         if (log.isDebugEnabled()) {
             log.debug("Activating ${connector_name}ConnectorServiceComponent");
         }
-        //register the custom provisioning connector as an OSGI service.
+        // Register the custom provisioning connector as an OSGI service.
         serviceRegistration = context.getBundleContext().registerService(
-                AbstractProvisioningConnectorFactory.class.getName(),new ${connector_name}ProvisioningConnectorFactory(),
-        null);
+                AbstractProvisioningConnectorFactory.class.getName(),
+                new ${connector_name}ProvisioningConnectorFactory(),null);
         log.info("${connector_name} Identity Provisioning Connector bundle is activated.");
     }
 
     protected void deactivate(ComponentContext context) {
 
-        if(log.isDebugEnabled()) {
-            log.debug("${connector_name} Identity Provisioning Connector bundle is deactivated.");
-        }
-
         // Unregistering the custom provisioning connector service.
         if(serviceRegistration != null) {
+            if (log.isDebugEnabled()) {
+                log.debug("${connector_name} Identity Provisioning Connector bundle is deactivated.");
+            }
             serviceRegistration.unregister();
         }
     }

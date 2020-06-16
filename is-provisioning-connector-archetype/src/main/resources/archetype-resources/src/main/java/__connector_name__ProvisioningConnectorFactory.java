@@ -14,16 +14,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Outbound Provisioning Connector Config Factory for ${connector_name}
+ * Outbound Provisioning Connector Config Factory for ${connector_name}.
  */
 public class ${connector_name}ProvisioningConnectorFactory extends AbstractProvisioningConnectorFactory {
 
     private static final Log log = LogFactory.getLog(${connector_name}ProvisioningConnectorFactory.class);
-    private static final String CONNECTOR_TYPE = "${connector_name}";
 
+    /**
+     * @param provisioningProperties
+     * @throws IdentityProvisioningException
+     */
     @Override
     protected AbstractOutboundProvisioningConnector buildConnector(
             Property[] provisioningProperties) throws IdentityProvisioningException {
+
         ${connector_name}ProvisioningConnector connector = new ${connector_name}ProvisioningConnector();
         connector.init(provisioningProperties);
         if (log.isDebugEnabled()) {
@@ -32,15 +36,23 @@ public class ${connector_name}ProvisioningConnectorFactory extends AbstractProvi
         return connector;
     }
 
+    /**
+     * Return the connector type
+     */
     @Override
     public String getConnectorType() {
-        return CONNECTOR_TYPE;
+
+        return ${connector_name}ConnectorConstants.CONNECTOR_TYPE;
     }
 
+    /**
+     * Populate the provisioning properties in the UI
+     */
     @Override
     public List<Property> getConfigurationProperties() {
+
         List<Property> configProperties = new ArrayList<Property>();
-        //Add your code for the UI
+        // Add your code for the UI
         return configProperties;
     }
 }

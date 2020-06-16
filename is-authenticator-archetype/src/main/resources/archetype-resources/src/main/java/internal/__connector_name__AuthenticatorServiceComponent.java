@@ -17,17 +17,18 @@ import java.util.Hashtable;
 
 @Component(name = "${package}.${connector_name}AuthenticatorServiceComponent", immediate = true)
 
+/**
+ * OSGI service component class to register the federated authenticator.
+ */
 public class ${connector_name}AuthenticatorServiceComponent {
 
     private static Log log = LogFactory.getLog(${connector_name}AuthenticatorServiceComponent.class);
     private ServiceRegistration serviceRegistration = null;
-
-
     @Activate
     protected void activate(ComponentContext context) {
 
         Hashtable<String, String> props = new Hashtable<String, String>();
-        //register the custom authenticator as an OSGI service.
+        // Register the custom authenticator as an OSGI service.
         serviceRegistration = context.getBundleContext().registerService(ApplicationAuthenticator.class.getName(),
         new ${connector_name}Authenticator(), props);
         log.info("${connector_name}AuthenticatorServiceComponent bundle activated successfully.");
@@ -35,12 +36,11 @@ public class ${connector_name}AuthenticatorServiceComponent {
 
     protected void deactivate(ComponentContext context) {
 
-        if(log.isDebugEnabled()) {
-            log.debug("${connector_name}AuthenticatorServiceComponent is deactivated.");
-        }
-
         // Unregistering the custom authenticator service.
         if(serviceRegistration != null) {
+            if(log.isDebugEnabled()) {
+                log.debug("${connector_name}AuthenticatorServiceComponent is deactivated.");
+            }
             serviceRegistration.unregister();
         }
     }

@@ -3,6 +3,9 @@
 #set( $symbol_escape = '\' )
 package ${package};
 
+/**
+ * Constant class for ${connector_name}Authenticator.
+ */
 public class ${connector_name}AuthenticatorConstants {
 
     public static final String AUTHENTICATOR_NAME = "${connector_name}";

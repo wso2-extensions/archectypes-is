@@ -15,15 +15,22 @@ import org.wso2.carbon.identity.provisioning.ProvisioningEntity;
 import java.util.Properties;
 
 /**
- * Outbound Provisioning Connector for ${connector_name}
+ * Outbound Provisioning Connector for ${connector_name}.
  */
 public class ${connector_name}ProvisioningConnector extends AbstractOutboundProvisioningConnector {
 
     private static final Log log = LogFactory.getLog(${connector_name}ProvisioningConnector.class);
     private ${connector_name}ProvisioningConnectorConfig configHolder;
 
+    /**
+     * Init the provisioning properties and add to the property to the configHolder
+     *
+     * @param provisioningProperties
+     * @throws IdentityProvisioningException
+     */
     @Override
     public void init(Property[] provisioningProperties) throws IdentityProvisioningException {
+
         Properties configs = new Properties();
 
         if (provisioningProperties != null && provisioningProperties.length > 0) {
@@ -42,9 +49,16 @@ public class ${connector_name}ProvisioningConnector extends AbstractOutboundProv
         configHolder = new ${connector_name}ProvisioningConnectorConfig(configs);
     }
 
+    /**
+     * Return provisioned identifier for the provisioned user
+     *
+     * @param provisioningEntity
+     * @throws IdentityProvisioningException
+     */
     @Override
     public ProvisionedIdentifier provision(ProvisioningEntity provisioningEntity)
             throws IdentityProvisioningException {
+
         String provisionedId = null;
         if (provisioningEntity != null) {
             if (provisioningEntity.isJitProvisioning() && !isJitProvisioningEnabled()) {

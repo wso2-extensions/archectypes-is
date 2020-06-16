@@ -3,65 +3,66 @@
 #set( $symbol_escape = '\' )
 package ${package};
 
-import org.apache.oltu.oauth2.client.response.OAuthClientResponse;
-import org.wso2.carbon.identity.application.authenticator.oidc.OpenIDConnectAuthenticator;
+import org.wso2.carbon.identity.application.authentication.framework.AbstractApplicationAuthenticator;
+import org.wso2.carbon.identity.application.authentication.framework.context.AuthenticationContext;
+import org.wso2.carbon.identity.application.authentication.framework.exception.AuthenticationFailedException;
 import org.wso2.carbon.identity.application.authentication.framework.FederatedApplicationAuthenticator;
-import org.wso2.carbon.identity.application.common.model.Property;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
- * Authenticator of ${connector_name}
+ * Authenticator of ${connector_name}.
  */
-public class ${connector_name}Authenticator extends OpenIDConnectAuthenticator
+public class ${connector_name}Authenticator extends AbstractApplicationAuthenticator
         implements FederatedApplicationAuthenticator {
 
     private static Log log = LogFactory.getLog(${connector_name}Authenticator.class);
 
     /**
-     * Get ${connector_name} authorization endpoint.
+     * This method is used to process the authentication response
+     *
+     * @param request HttpServletRequest
+     * @param response HttpServletResponse
+     * @param context AuthenticationContext
+     * @throws AuthenticationFailedException
      */
     @Override
-    protected String getAuthorizationServerEndpoint(Map< String, String > authenticatorProperties) {
+    protected void processAuthenticationResponse(HttpServletRequest request , HttpServletResponse response,
+                                                AuthenticationContext context)
+        throws AuthenticationFailedException {
 
-        return ${connector_name}AuthenticatorConstants.${connector_name}_OAUTH_ENDPOINT;
+        // Does the actual authentication
+
+        //TODO: Implement the required logic
+
     }
 
     /**
-     * Get ${connector_name} token endpoint.
+     * This method is used to handle the authentication request
+     *
+     * @param request HttpServletRequest
      */
-    @Override
-    protected String getTokenEndpoint(Map< String, String > authenticatorProperties) {
+    public boolean canHandle(HttpServletRequest request) {
 
-        return ${connector_name}AuthenticatorConstants.${connector_name}_TOKEN_ENDPOINT;
+        return true;
     }
 
     /**
-     * Get ${connector_name} user info endpoint.
+     * This method is to get the correlation ID from the request
+     *
+     * @param request HttpServletRequest
      */
-    @Override
-    protected String getUserInfoEndpoint(OAuthClientResponse token, Map< String, String > authenticatorProperties) {
+    public String getContextIdentifier(HttpServletRequest request) {
 
-        return ${connector_name}AuthenticatorConstants.${connector_name}_USERINFO_ENDPOINT;
-    }
-
-    /**
-     * Check ID token in ${connector_name} OAuth.
-     */
-    @Override
-    protected boolean requiredIDToken(Map< String, String > authenticatorProperties) {
-
-        return false;
+        return request.getParameter("sessionDataKey");
     }
 
     /**
      * Get the friendly name of the Authenticator
      */
-    @Override
     public String getFriendlyName() {
 
         return ${connector_name}AuthenticatorConstants.AUTHENTICATOR_FRIENDLY_NAME;
@@ -70,20 +71,8 @@ public class ${connector_name}Authenticator extends OpenIDConnectAuthenticator
     /**
      * Get the name of the Authenticator
      */
-    @Override
     public String getName() {
 
         return ${connector_name}AuthenticatorConstants.AUTHENTICATOR_NAME;
-    }
-
-    /**
-     * Get Configuration Properties
-     */
-    @Override
-    public List<Property> getConfigurationProperties() {
-
-        List<Property> configProperties = new ArrayList<Property>();
-        //Add your configuration properties
-        return configProperties;
     }
 }

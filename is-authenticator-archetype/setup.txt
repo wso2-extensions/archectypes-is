@@ -1,4 +1,4 @@
-Product: Template for WSO2 Identity Server Authenticator
+Product: Template for WSO2 Identity Server Federated Authenticator
 
 STEPS:
 

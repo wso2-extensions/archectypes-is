@@ -17,11 +17,13 @@ import java.util.Hashtable;
 
 @Component(name = "${package}.${connector_name}AuthenticatorServiceComponent", immediate = true)
 
+/**
+ * OSGI service component class to register the local authenticator.
+ */
 public class ${connector_name}AuthenticatorServiceComponent {
 
     private static Log log = LogFactory.getLog(${connector_name}AuthenticatorServiceComponent.class);
     private ServiceRegistration serviceRegistration = null;
-
 
     @Activate
     protected void activate(ComponentContext context) {
@@ -34,12 +36,11 @@ public class ${connector_name}AuthenticatorServiceComponent {
 
     protected void deactivate(ComponentContext context) {
 
-        if(log.isDebugEnabled()) {
-            log.debug("${connector_name}AuthenticatorServiceComponent is deactivated.");
-        }
-
         // Unregistering the custom local authenticator service.
         if(serviceRegistration != null) {
+            if(log.isDebugEnabled()) {
+                log.debug("${connector_name}AuthenticatorServiceComponent is deactivated.");
+            }
             serviceRegistration.unregister();
         }
     }
