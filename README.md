@@ -3,8 +3,9 @@
 This is to maintain the archetypes related to Identity Server
 
 ## Corresponding IS version  and available archetypes
-- IS 5.9.0 - [IS 5.9 archetypes](https://github.com/inthirakumaaran/archetype-is/tree/IS5.9)
+- IS 5.9.0 - [IS 5.9 archetypes](https://github.com/wso2-extensions/archetype-is/tree/is-5.9.0)
 
+ 
 ## How to contribute
 
 1.Run the following command  in the base project to create the basic archetype
@@ -48,9 +49,11 @@ mvn archetype:create-from-project
 </requiredProperties>
 ```
 6.Rename the java file names & rename the component name in the files.
-File name: `authenticator.java` --> `__authenticator-name__authenticator,java`.
-Class name: `public class Authenticator` --> `public class ${authenticator-name}Authenticator` 
-(**Note**: Rename all other code references with ${authenticator-name})
+```
+File name: 'authenticator.java' --> '__authenticator-name__authenticator.java'
+Class name: 'public class Authenticator' --> 'public class ${authenticator-name}Authenticator'
+```
+(**Note**: Rename all other code references with `${authenticator-name}` & and file change by prefixing `__authenticator-name__`)
 
 7.Edit the archetype/pom.xml
 a. Have the versioning like:
@@ -79,11 +82,11 @@ Eg:
  mvn clean install
  ``` 
                    
-9.[Test the archetype locally](##Testing-the-archetype-locally)
+9.[Test the archetype locally](#testing-the-archetype-locally)
 
-10.[Send the PR relevant branch.](###Send PR to wso2)
+10.[Send the PR](#send-pr-to-wso2)
 
-###Testing the archetype locally
+### Testing the archetype locally
 
 There are two ways to check your local repository.
 
@@ -116,7 +119,7 @@ mvn archetype:generate
   -Dversion=<sampleVersion>
 ```
 
-###Send PR to wso2
+### Send PR to wso2
 1. Fork repo https://github.com/wso2-extensions/archetype-is/tree/master 
 1. Select the branch suitable for the wso2is version
 1. Create Readme for your archetype
