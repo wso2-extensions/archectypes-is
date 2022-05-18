@@ -6,7 +6,7 @@
 
     <groupId>org.wso2.carbon.identity.archetype</groupId>
     <artifactId>org.wso2.carbon.identity.extension.is-federated-authenticator-archetype</artifactId>
-    <version>5.9.0.1-SNAPSHOT</version>
+    <version>5.12.0.1-SNAPSHOT</version>
     <packaging>maven-archetype</packaging>
 
     <name>WSO2 Identity Server - Federated Authenticator Archetype</name>
