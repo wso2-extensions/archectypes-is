@@ -4,6 +4,7 @@ This is to maintain the archetypes related to Identity Server
 
 ## Corresponding IS version  and available archetypes
 - IS 5.9.0 - [IS 5.9 archetypes](https://github.com/wso2-extensions/archetype-is/tree/is-5.9.0)
+- IS 6.0.0 - [IS 6.0 archetypes](https://github.com/wso2-extensions/archetype-is/tree/is-6.0.0)
 
  
 ## How to contribute
